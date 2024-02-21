@@ -11,7 +11,7 @@ FROM node:alpine as build
 WORKDIR /makegirlsmoe_web
 COPY --from=base /git/makegirlsmoe_web .
 RUN npm install && \
-    sed -i 's/var debug=false;/var debug=true;/' src/Config.js && \
+    sed -i 's/var debug = false;/var debug = true;/' src/Config.js && \
     npm run build
 
 FROM pierrezemb/gostatic
