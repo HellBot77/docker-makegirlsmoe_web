@@ -14,6 +14,7 @@ RUN npm install && \
     sed -i 's/var debug = false;/var debug = true;/' src/Config.js && \
     npm run build
 
-FROM lipanski/docker-static-website
+FROM pierrezemb/gostatic
 
-COPY --from=build /makegirlsmoe_web/build .
+COPY --from=build /makegirlsmoe_web/build /srv/http
+EXPOSE 8043
