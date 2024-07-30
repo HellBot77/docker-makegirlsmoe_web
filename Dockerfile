@@ -6,7 +6,7 @@ RUN git clone https://github.com/makegirlsmoe/makegirlsmoe_web.git && \
     ([[ "$TAG" = "latest" ]] || git checkout ${TAG}) && \
     rm -rf .git
 
-FROM node:alpine as build
+FROM node:alpine AS build
 
 WORKDIR /makegirlsmoe_web
 COPY --from=base /git/makegirlsmoe_web .
